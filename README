@@ -1,0 +1,37 @@
+Universidade Federal do Paraná
+Tópicos em Algoritmos
+Primeiro Trabalho Prático - Problema do Caixeiro Viajante (TSP)
+
+ESTUDANTES:	Allan de Oliveira Roscoche
+			Evandro Augusto Muchinski Camara
+			Fernando Cezar Bernardelli
+
+
+O trabalho consiste na implementação em Python do algoritmo de programação dinâmica 
+sugerido por Richard Bellman no artigo Dynamic Programming Treatment of the 
+Travelling Salesman Problem, Journal of the ACM (JACM), v.9 n.1, p.61-63, Jan. 1962
+Abaixo está a estrutura da solução:
+
+Entradas: Número de vértices n, matriz de distâncias n*n C = (Cij)
+Notação: 
+	V = {1, ..., n} conjunto de vértices
+	S = Subconjunto de V
+	g(i,S) = Tamanho do menor caminho do vértie i ao vértice 1 passando uma vez por
+			cada vértice de S
+	p(i,S) = O primeiro vértice após 1 do menor caminho de i para 1 passando uma vez 
+			por cada vértice de S
+	
+Passos: 
+	1. Para i de 2 a n, g(i,{}) = Ci1
+	2. Para k=1 a n-2
+			Para cada subconjunto S de V-{1} com k vértices
+				Para cada i <> 1, de S
+				g(i,S) = min(Cij + g(j, S-{j}), j pertence a S
+				p(i,S) = valor de j que resultou no mínimo
+	3. g(1,V-{1}) = min(C1j + g(j, V-{1,j}), j pertence a {2, ..., n}
+	   p(1,V-{1}) = valor de j que resultou no mínimo
+	   
+O tamanho do menor caminho pode ser obtido por g(1,V-{1})
+O menor caminho pode ser obtivo pelo array p com os passos da recursão abaixo
+	p(1,V-{1}) = k
+	p(k,V-{1,k})

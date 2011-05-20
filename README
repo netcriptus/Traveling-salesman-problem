@@ -1,37 +1,37 @@
-Universidade Federal do Paran·
-TÛpicos em Algoritmos
-Primeiro Trabalho Pr·tico - Problema do Caixeiro Viajante (TSP)
+Universidade Federal do Paran√°
+T√≥picos em Algoritmos
+Primeiro Trabalho Pr√°tico - Problema do Caixeiro Viajante (TSP)
 
 ESTUDANTES:	Allan de Oliveira Roscoche
 			Evandro Augusto Muchinski Camara
 			Fernando Cezar Bernardelli
 
 
-O trabalho consiste na implementaÁ„o em Python do algoritmo de programaÁ„o din‚mica 
+O trabalho consiste na implementa√ß√£o em Python do algoritmo de programa√ß√£o din√¢mica 
 sugerido por Richard Bellman no artigo Dynamic Programming Treatment of the 
 Travelling Salesman Problem, Journal of the ACM (JACM), v.9 n.1, p.61-63, Jan. 1962
-Abaixo est· a estrutura da soluÁ„o:
+Abaixo est√° a estrutura da solu√ß√£o:
 
-Entradas: N˙mero de vÈrtices n, matriz de dist‚ncias n*n C = (Cij)
-NotaÁ„o: 
-	V = {1, ..., n} conjunto de vÈrtices
+Entradas: N√∫mero de v√©rtices n, matriz de dist√¢ncias n*n C = (Cij)
+Nota√ß√£o: 
+	V = {1, ..., n} conjunto de v√©rtices
 	S = Subconjunto de V
-	g(i,S) = Tamanho do menor caminho do vÈrtie i ao vÈrtice 1 passando uma vez por
-			cada vÈrtice de S
-	p(i,S) = O primeiro vÈrtice apÛs 1 do menor caminho de i para 1 passando uma vez 
-			por cada vÈrtice de S
+	g(i,S) = Tamanho do menor caminho do v√©rtie i ao v√©rtice 1 passando uma vez por
+			cada v√©rtice de S
+	p(i,S) = O primeiro v√©rtice ap√≥s 1 do menor caminho de i para 1 passando uma vez 
+			por cada v√©rtice de S
 	
 Passos: 
 	1. Para i de 2 a n, g(i,{}) = Ci1
 	2. Para k=1 a n-2
-			Para cada subconjunto S de V-{1} com k vÈrtices
+			Para cada subconjunto S de V-{1} com k v√©rtices
 				Para cada i <> 1, de S
 				g(i,S) = min(Cij + g(j, S-{j}), j pertence a S
-				p(i,S) = valor de j que resultou no mÌnimo
+				p(i,S) = valor de j que resultou no m√≠nimo
 	3. g(1,V-{1}) = min(C1j + g(j, V-{1,j}), j pertence a {2, ..., n}
-	   p(1,V-{1}) = valor de j que resultou no mÌnimo
+	   p(1,V-{1}) = valor de j que resultou no m√≠nimo
 	   
 O tamanho do menor caminho pode ser obtido por g(1,V-{1})
-O menor caminho pode ser obtivo pelo array p com os passos da recurs„o abaixo
+O menor caminho pode ser obtivo pelo array p com os passos da recurs√£o abaixo
 	p(1,V-{1}) = k
 	p(k,V-{1,k})
